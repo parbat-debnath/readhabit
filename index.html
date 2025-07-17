@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Parbat Debnath">
+    <meta name="theme-color" content="#212121">
+    <link rel="stylesheet" href="assets/style/style.css">
+    <link rel="icon" href="assets/images/logo.png" type="image/png">
+    <title>Readhabit</title>
+</head>
+<body>
+    <div class="header">
+        <div class="heading"><h1>Readhabit</h1></div>
+        <div class="subheading"><p>Habit of book reading</p></div>
+    </div>
+    <div id="popupholder">
+    </div>
+    <form id="book-form">
+        <div>
+            <h1>Fill book details</h1>
+            <input type="text" id="bookTitle" placeholder="Book title" autocomplete="off">
+            <input type="text" id="bookAuthor" placeholder="Author" autocomplete="off">
+            <input type="number" name="" id="bookPages" placeholder="Total pages" autocomplete="off">
+            <input type="date" name="" id="dueDate" autocomplete="off" placeholder="Due Date">
+            <p id="form-message"></p>
+            <button id="entry-cancel" type="button" class="add-book-btn-cancel">Cancel</button>
+            <button id="entry-confirm" type="button" class="add-book-btn-add" onclick="addCurrentBook()">Add</button>
+        </div>
+    </form>
+    <div class="current-books">
+        <div class="current-book-list-header">
+            <h2 id="current-book-heading">Current books</h2>
+            <button onclick="toggleBookAddPage()" class="addnewbookbtn">Add book</button>
+        </div>
+        <div class="add-current-book">
+        </div>
+        <div id="current"></div>
+    </div>
+    <div class="wishlist-books">
+        <div class="wishlist-header">
+            <h2>Wishlist</h2>
+            <button onclick="wishlistPopupOpen()">Add book</button>
+        </div>
+        <div id="wishlist"></div>
+    </div>
+    <div class="completed-books">
+        <h2 class="completed-books-heading">Completed</h2>
+        <div id="completed"></div>
+    </div>
+    
+    
+    <footer class="footer"><p>Created by <a href="https://www.facebook.com/parbat.debnath" target="_blank" rel="noopener noreferrer">Parbat Debnath</a></p></footer>
+
+    <script src="scripts/readhabit.js"></script>
+</body>
+</html>

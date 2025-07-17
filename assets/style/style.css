@@ -1,0 +1,514 @@
+* {
+    margin: 0px;
+    padding: 0px;
+}
+body {
+    font-family: 'Roboto', sans-serif;
+    position: relative;
+    min-height: 82vh;
+}
+
+/*
+// Theme colors
+
+light : white, #bbbbbb
+
+dark : #212121 ( page theme ) 
+
+others : red (#ff0000), green (#2fc02f)
+
+// Theme fonts
+
+monoscript, Roboto
+*/
+
+.header {
+    padding: 5vw;
+    color: white;
+    background-color: #212121;
+    z-index: 1;
+}
+.header .heading h1 {
+    font-size: 20px;
+    font-family: monospace;
+    font-weight: 500;
+}
+.header .subheading p {
+    font-size: 12px;
+    color: #bbbbbb;
+}
+#current {
+    border-bottom: 2px solid #bbbbbb;
+}
+.current-books .current-book-list-header {
+    padding: 5vw;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* margin-bottom: 10px; */
+    background-color: white;
+    box-shadow: 0px 2px 5px #bbbbbb;
+    position: sticky;
+    top: 0px;
+    z-index: 1;
+}
+.current-books .current-book-list-header #current-book-heading {
+    font-size: 20px;
+}
+.current-books .current-book-list-header .addnewbookbtn {
+    padding: 5px;
+}
+
+#book-form {
+    position: fixed;
+    top: 0px;
+    width: 100%;
+    background-color: rgb(187, 187, 187, 0.7);
+    height: 100vh;
+    z-index: 3;
+}
+#book-form div {
+    background-color: #212121;
+    margin: 5vw;
+    padding: 10vw;
+    border-radius: 10px;
+    transition: 0.3s;
+}
+#book-form div h1{
+    color: white;
+    margin-bottom: 50px;
+}
+#book-form div input {
+    box-sizing: border-box;
+    margin-bottom: 20px;
+    padding: 10px;
+    padding-left: 0px;
+    width: 100%;
+    outline: none;
+    color: white;
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid #bbbbbb;
+    transition: 0.3s;
+}
+#book-form div input:hover {
+    border-bottom: 1px solid white;
+}
+#book-form div button {
+    box-sizing: border-box;
+    width: 49%;
+    padding: 10px;
+    margin-top: 10vw;
+    border: none;
+    font-size: 14px;
+}
+#book-form div .add-book-btn-cancel {
+    background-color: transparent;
+    color: white;
+}
+
+#current .book-element{
+    padding: 5vw;
+    border-bottom: 1px solid #bbbbbb;
+}
+#current .book-element p {
+    font-size: 14px;
+}
+#current .book-element .book-title{
+    font-size: 18px;
+    margin-bottom: 3px;
+    font-weight: 800;
+}
+#current .book-element .book-author{
+    font-weight: 500;
+    color:#212121;
+}
+#current .book-element .progress {
+    box-sizing: border-box;
+    width: auto;
+    display: flex;
+    align-items: center;
+}
+#current .book-element .progress .progressmeter {
+    width: 100%;
+    background-color: #bbbbbb;
+    border-radius: 5px;
+    
+}
+#current .book-element .progress .progressmeter .progressmeter-reading {
+    background-color: #212121;
+    padding: 5px;
+    border-radius: 5px;
+}
+#current .book-element .progress .text-progress {
+    min-width: 100px;
+    text-align: center;
+}
+#current .book-element .action-btn {
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+}
+#current .book-element .action-btn button{
+    margin-right: 5px;
+    padding: 5px;
+}
+
+#popupholder {
+    background-color: rgb(187, 187, 187, 0.7);
+    position: fixed;
+    top:  0px;
+    width: 100%;
+    height: 100vh;
+    z-index: 4;
+}
+#popupholder .update-popup {
+    background-color: #212121;
+    margin: 5vw;
+    padding: 10vw;
+    border-radius: 10px;
+    color: white;
+    position: relative;
+}
+#popupholder .update-popup .popup-header {
+    margin-bottom: 50px;
+    
+}
+
+#popupholder .update-popup .update-input-field {
+    box-sizing: border-box;
+    margin-bottom: 20px;
+    padding: 10px;
+    width: 100%;
+    outline: none;
+    color: white;
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid #bbbbbb;
+    padding-left: 0px;
+    transition: 0.3s;
+}
+#popupholder .update-popup .update-input-field:hover {
+    border-bottom: 1px solid white;
+}
+#popupholder .update-popup button {
+    box-sizing: border-box;
+    width: 49%;
+    padding: 10px;
+    margin-top: 10vw;
+    border: none;
+    font-size: 14px;
+}
+#popupholder .update-popup #cancel-submit-btn {
+    background-color: transparent;
+    color: white;
+}
+
+#popupholder .edit-popup {
+    background-color: #212121;
+    margin: 5vw;
+    padding: 10vw;
+    border-radius: 10px;
+    color: white;
+    position: relative;
+}
+#popupholder .edit-popup .edit-popup-header {
+    margin-bottom: 50px;
+}
+#popupholder .edit-popup .subheading {
+    margin-bottom: 10px;
+}
+#popupholder .edit-popup input {
+    box-sizing: border-box;
+    margin-bottom: 20px;
+    padding: 10px;
+    width: 100%;
+    outline: none;
+    color: white;
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid #bbbbbb;
+    transition: 0.3s;
+    padding-left: 0px;
+}
+#popupholder .edit-popup button {
+    box-sizing: border-box;
+    width: 49%;
+    padding: 10px;
+    margin-top: 10vw;
+    border: none;
+    font-size: 14px;
+}
+#popupholder .edit-popup .edit-cancel-btn {
+    color: white;
+    background-color: transparent;
+}
+
+#popupholder .delete-popup {
+    background-color: #212121;
+    margin: 5vw;
+    padding: 10vw;
+    border-radius: 10px;
+    color: white;
+    position: relative;
+}
+
+#popupholder .delete-popup .delete-popup-message {
+    margin-bottom: 10px;
+}
+
+#popupholder .delete-popup button {
+    box-sizing: border-box;
+    width: 49%;
+    padding: 10px;
+    margin-top: 10vw;
+    border: none;
+    font-size: 14px;
+}
+#popupholder .delete-popup .delete-cancel-btn {
+    color: white;
+    background-color: transparent;
+}
+
+/* Wishlist */
+
+#wishlist {
+    border-bottom: 2px solid #bbbbbb;
+}
+
+.wishlist-header {
+    padding: 5vw;
+    display: flex;
+    background-color: white;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0px;
+    z-index: 2;
+}
+.wishlist-header h2 {
+    font-size: 20px;
+}
+.wishlist-header button {
+    padding: 5px;
+}
+.wishlist-popup {
+    background-color: #212121;
+    margin: 5vw;
+    padding: 10vw;
+    border-radius: 10px;
+    color: white;
+    position: relative;
+}
+.wishlist-popup input {
+    box-sizing: border-box;
+    margin-bottom: 20px;
+    padding: 10px;
+    width: 100%;
+    outline: none;
+    color: white;
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid #bbbbbb;
+    transition: 0.3s;
+    padding-left: 0px;
+}
+.wishlist-popup input:hover {
+    border-bottom: 1px solid white;
+}
+.wishlist-popup .wishlist-popup-message {
+    margin-bottom: 10px;
+}
+.wishlist-popup h2 {
+    margin-bottom: 20px;
+}
+.wishlist-popup button {
+    box-sizing: border-box;
+    width: 49%;
+    padding: 10px;
+    margin-top: 10vw;
+    border: none;
+    font-size: 14px;
+}
+.wishlist-popup .wishlist-popup-cancel-btn {
+    color: white;
+    background-color: transparent;
+}
+.wishlist-book-element {
+    padding: 5vw;
+    border-bottom: 1px solid #bbbbbb;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.wishlist-book-element .wishlist-book-title {
+    font-size: 17px;
+}
+.wishlist-book-element .wishlist-book-author {
+    font-size: 14px;
+}
+.wishlist-book-element .wishlist-action-btn button {
+    padding: 5px;
+    padding: 5px;
+    margin-left: 5px;
+}
+
+.move-to-current-popup {
+    background-color: #212121;
+    margin: 5vw;
+    padding: 10vw;
+    border-radius: 10px;
+    color: white;
+    position: relative;
+}
+.move-to-current-popup h2 {
+    margin-bottom: 20px;
+}
+.move-to-current-popup input {
+    box-sizing: border-box;
+    margin-bottom: 20px;
+    padding: 10px;
+    width: 100%;
+    outline: none;
+    color: white;
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid #bbbbbb;
+    transition: 0.3s;
+    padding-left: 0px;
+}
+.move-to-current-popup input:hover {
+    border-bottom: 1px solid white;
+}
+.move-to-current-popup button {
+    box-sizing: border-box;
+    width: 49%;
+    padding: 10px;
+    margin-top: 10vw;
+    border: none;
+    font-size: 14px;
+}
+.move-to-current-cancel-btn {
+    color: white;
+    background-color: transparent;
+}
+.move-to-current-popup .move-to-current-popup-header {
+    margin-bottom: 10px;
+}
+
+/* Completed books */
+
+.completed-books .completed-book-details{
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.completed-book-title, .completed-book-author, .completed-book-totalpages{
+    width: 29%;
+    padding: 5px;
+}
+.completed-book-totalpages {
+    text-align: right;
+    color: #212121;
+    font-weight: bold;
+    font-family: monospace;
+}
+.completed-books .completed-books-heading {
+    padding: 5vw;
+    font-size: 20px;
+    background-color: white;
+    position: sticky;;
+    top: 0px;
+    z-index: 2;
+}
+.completed-book {
+    padding: 5vw;
+    border-bottom: 1px solid #bbbbbb;
+}
+.completed-book .completed-book-title {
+    font-size: 18px;
+    color: #212121;
+}
+.completed-book .completed-book-author {
+    font-size: 14px;
+    color: #bbbbbb;
+}
+.completed-book-completion-date {
+    font-size: 14px;
+    padding: 5px;
+    color: #bbbbbb;
+}
+.completed-book button {
+    margin-left: 5px;
+    padding: 5px;
+    margin-top: 10px;
+}
+
+/* Renewal popup */
+
+.renewal-popup {
+    background-color: #212121;
+    margin: 5vw;
+    padding: 10vw;
+    border-radius: 10px;
+    color: white;
+    position: relative;
+}
+.renewal-popup .renewal-popup-heading {
+    margin-bottom: 20px;
+}
+.renewal-popup input {
+    box-sizing: border-box;
+    margin-bottom: 20px;
+    padding: 10px;
+    width: 100%;
+    outline: none;
+    color: white;
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid #bbbbbb;
+    transition: 0.3s;
+    padding-left: 0px;
+}
+.renewal-popup input:hover {
+    border-bottom: 1px solid white;
+}
+.renewal-popup button {
+    box-sizing: border-box;
+    width: 49%;
+    padding: 10px;
+    margin-top: 10px;
+    border: none;
+    font-size: 14px;
+}
+.renewal-cancel-btn {
+    color: white;
+    background-color: transparent;
+}
+
+/* Footer */
+
+.footer {
+    padding: 10vw;
+    text-align: center;
+    position: absolute;
+    transform: translate(-50%, 100%);
+    left: 50%;
+    width: 100%;
+    min-width: 200px;
+    background-color: white;
+    box-sizing: border-box;
+    bottom: 0px;
+}
+.footer p {
+    font-size: 12px;
+    color: #bbbbbb;
+    text-align: center;
+}
+.footer p a {
+    text-decoration: none;
+    font-weight: bold;
+    color: #212121;
+    -webkit-tap-highlight-color: transparent;
+    outline: none;
+}
